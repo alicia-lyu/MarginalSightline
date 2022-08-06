@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const morgan = require('morgan');
 const methodOverride = require('method-override');
 const Bodypart = require('./models/Bodypart');
 
@@ -18,6 +19,7 @@ app.set('views', path.join(__dirname, 'views'))
 
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
+app.use(morgan('tiny'));
 
 
 app.get('/', async (req, res) => {
@@ -37,6 +39,10 @@ app.get('/archive', async (req, res) => {
 app.get('/opposition', (req, res) => {
     res.render('opposition');
 });
+
+app.use((req, res) => {
+    res.status(404).send('Not Found')
+})
 
 app.listen(3000, () => {
     console.log('Serving on port 3000')
