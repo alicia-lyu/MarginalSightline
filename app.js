@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const ejsMate = require('ejs-mate');
 const morgan = require('morgan');
 const methodOverride = require('method-override');
 const Bodypart = require('./models/Bodypart');
@@ -14,6 +15,7 @@ db.once("open", () => {
     console.log("Database connected");
 });
 
+app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
 
@@ -24,20 +26,20 @@ app.use(morgan('tiny'));
 
 app.get('/', async (req, res) => {
     const bodyparts = await Bodypart.find({});
-    res.render('home', { bodyparts });
+    res.render('main/home', { bodyparts });
 });
 
 app.get('/research', (req, res) => {
-    res.render('research');
+    res.render('main/research');
 });
 
 app.get('/archive', async (req, res) => {
     const bodyparts = await Bodypart.find({});
-    res.render('archive', { bodyparts });
+    res.render('main/archive', { bodyparts });
 });
 
 app.get('/opposition', (req, res) => {
-    res.render('opposition');
+    res.render('main/opposition');
 });
 
 app.use((req, res) => {
