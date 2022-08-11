@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Helvetica Neue';
+    font-weight: 300; /* light */
+    src: url('../fonts/HelveticNeue/HelveticaNeue-Light.woff') format('woff'),
+     url('../fonts/HelveticNeue/HelveticaNeue-Light.woff2') format('woff2'); 
+}
+
+/* @font-face {
+    font-family: 'Helvetica Neue';
+    font-weight: 400; 
+    src: url('../fonts/HelveticNeue/HelveticaNeue.woff') format('woff'),
+     url('../fonts/HelveticNeue/HelveticaNeue.woff2') format('woff2'); 
+} */
+
+@font-face {
+    font-family: 'Myriad Variable Concept';
+    font-style: normal;
+    font-weight: 1 999;
+    src: url('../fonts/MyriadVariableConcept/MyriadVariableConcept-Roman.woff') format('woff'),
+     url('../fonts/MyriadVariableConcept/MyriadVariableConcept-Roman.woff2') format('woff2'); 
+}
+
+@font-face {
+    font-family: 'Myriad Variable Concept';
+    font-style: italic;
+    font-weight: 1 999;
+    src: url('../fonts/MyriadVariableConcept/MyriadVariableConcept-Italic.woff') format('woff'),
+     url('../fonts/MyriadVariableConcept/MyriadVariableConcept-Italic.woff2') format('woff2'); 
+}
+
+@font-face {
+    font-family: 'Analogue';
+    font-style: italic;
+    src: url('../fonts/Analogue/AnalogueItalic.woff') format('woff'),
+     url('../fonts/Analogue/AnalogueItalic.woff2') format('woff2'); 
+}

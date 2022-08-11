@@ -1,9 +1,79 @@
-@font-face {
-    font-family: 'PingFang';
-    src: url('../fonts/PingFang/PingFang.woff') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-     url('../fonts/PingFang/PingFang.ttc') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
-  } 
+@import '../../node_modules/@fortawesome/fontawesome-free/css/all.css';
+@import 'font-face.css';
 
 body {
     background: black;
+    color: white;
+    font-family: 'Myriad Variable Concept';
+    font-weight: 300;
+}
+
+body main h1 {
+    font-family: 'Analogue';
+    font-style: italic;
+    font-size: 2em;
+}
+
+footer {
+    font-size: 0.8em;
+    font-family: 'Helvetica Neue';
+    font-weight: 400;
+    color: white;
+}
+
+#mainPageLink {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+#svgContainer {
+    background-image: url(../img/thumbnails/favicon.svg);
+    line-height: 1;
+    padding-left: 1.8em;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+}
+
+#navLinks ul {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 100%;
+}
+
+/* .nav-item {
+    display: inline-block;
+} */
+
+#downloadPart a {
+    color:rgb(209, 211, 212);
+    font-weight: 500;
+}
+
+#downloadPart a:hover {
+    color:rgb(169, 169, 171);
+}
+
+#mainNavbar {
+    background: black;
+    font-family: 'Helvetica Neue';
+    font-weight: 300;
+    color: #383838;
+}
+
+#downloadPart {
+    font-style: italic;
+    font-size: 1.2em;
+}
+
+#essayPart {
+    font-size: 1.2em;
+    color: rgb(209, 211, 212);
+}
+
+@media screen and (min-width: 576px) {
+    #mainNavbar .current a {
+        color: white;
+    }
 }
