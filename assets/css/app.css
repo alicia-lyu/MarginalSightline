@@ -1,6 +1,7 @@
 @import '../../node_modules/@fortawesome/fontawesome-free/css/all.css';
 @import 'font-face.css';
 
+/* built-in */
 body {
     background: black;
     color: white;
@@ -20,31 +21,67 @@ footer {
     font-weight: 400;
     color: white;
 }
+/* built-in */
 
-#mainPageLink {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: nowrap;
+/* bootstrap built-in */
+
+#mainNavbar {
+    background: black;
+    font-family: 'Helvetica Neue';
+    font-weight: 300;
+    color: #383838;
 }
 
-#svgContainer {
-    background-image: url(../img/thumbnails/favicon.svg);
+@media screen and (min-width: 576px) {
+    #mainNavbar .current a {
+        color: white;
+    }
+
+    #navLinks ul {
+        display: flex;
+        justify-content: space-between;
+        margin: auto;
+        width: 99%;
+    }
+}
+
+/* bootstrap built-in */
+
+/* custom */
+
+/*-- nav */
+.svgContainer {
+    background-image: url(../img/thumbnails/simple_logo.svg);
     line-height: 1;
-    padding-left: 1.8em;
+    padding-left: 1.5em;
+    margin-right: 2px;
     background-size: auto 100%;
     background-repeat: no-repeat;
+    background-position: right;
 }
 
-#navLinks ul {
+#tabName {
+    font-family: 'Helvetica Neue';
+    font-weight: 300;
+    color: white;
     display: flex;
-    justify-content: space-between;
-    margin: auto;
-    width: 100%;
+    padding-right: 10px;
 }
 
-/* .nav-item {
-    display: inline-block;
-} */
+@media screen and (min-width: 576px) {
+    #tabName {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #mainNavLi {
+        display: block;
+        text-align: left;
+    }
+}
+
+/*-- nav */
 
 #downloadPart a {
     color:rgb(209, 211, 212);
@@ -53,13 +90,6 @@ footer {
 
 #downloadPart a:hover {
     color:rgb(169, 169, 171);
-}
-
-#mainNavbar {
-    background: black;
-    font-family: 'Helvetica Neue';
-    font-weight: 300;
-    color: #383838;
 }
 
 #downloadPart {
@@ -71,9 +101,4 @@ footer {
     font-size: 1.2em;
     color: rgb(209, 211, 212);
 }
-
-@media screen and (min-width: 576px) {
-    #mainNavbar .current a {
-        color: white;
-    }
-}
+/* custom */

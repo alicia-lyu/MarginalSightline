@@ -1,13 +1,42 @@
 <% layout('layouts/boilerplate')%>
-<div class="row">
-    <div class="col-8">
-        <ul>
-        <% for (let bodypart of bodyparts) { %>
-            <li>
-                item: <%= bodypart.num %>
+<nav id="mainNavbar" class="navbar navbar-dark navbar-expand-sm fixed-top">
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navLinks">
+        <ul class="navbar-nav">
+            <li class="nav-item current" id="mainNavLi">
+                <a href="/" class="nav-link">
+                    <span class="svgContainer"></span>
+                    <span>MARGINAL SIGHTLINE</span>
+                </a>
             </li>
-        <% } %> 
+            <li class="nav-item">
+                <a href="/research" class="nav-link">RESEARCH</a>
+            </li>
+            <li class="nav-item">
+                <a href="/archive" class="nav-link">ARCHIVE</a>
+            </li>
+            <li class="nav-item">
+                <a href="/opposition" class="nav-link">OPPOSITION</a>
+            </li>
         </ul>
     </div>
-</body>
-</html>
+    <div id="tabName">
+        <span class="svgContainer"></span>
+        <span>MARGINAL SIGHTLINE</span>
+    </div>
+</nav>
+<main class="container mt-5">
+    <div class="row">
+        <div class="col-8">
+            <ul>
+            <% for (let bodypart of bodyparts) { %>
+                <li>
+                    item: <%= bodypart.num %>
+                </li>
+            <% } %> 
+            </ul>
+        </div>
+    </div>
+</main>
