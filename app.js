@@ -31,20 +31,20 @@ app.use(morgan('tiny'));
 
 app.get('/', async (req, res) => {
     const bodyparts = await Bodypart.find({});
-    res.render('main/home', { bodyparts });
+    res.render('main/home', { bodyparts, tabName: 'Home' });
 });
 
 app.get('/research', (req, res) => {
-    res.render('main/research');
+    res.render('main/research', {tabName: 'Research'});
 });
 
 app.get('/archive', async (req, res) => {
     const bodyparts = await Bodypart.find({});
-    res.render('main/archive', { bodyparts });
+    res.render('main/archive', { bodyparts, tabName: 'Archive' });
 });
 
 app.get('/opposition', (req, res) => {
-    res.render('main/opposition');
+    res.render('main/opposition', {tabName: 'Opposition'});
 });
 
 app.use((req, res) => {

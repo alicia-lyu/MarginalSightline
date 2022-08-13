@@ -1,3 +1,4 @@
+// Navbar decoration
 const collapseItem = document.querySelector('.collapse');
 const tabName = document.querySelector('#tabName');
 const mainNavbar = document.querySelector('#mainNavbar')
@@ -18,3 +19,8 @@ window.addEventListener('resize', () => {
         tabName.style.display = 'flex';
     }
 })
+
+// opposition
+const oppoTitle = document.querySelector('#oppoTitle.h1');
+const oppoTitleW = parseInt(oppoTitle.style.width);
+oppoTitle.style.height = Math.round(oppoTitleW / 210.2 * 118.25).toString();

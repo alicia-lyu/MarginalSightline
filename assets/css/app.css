@@ -6,13 +6,7 @@ body {
     background: black;
     color: white;
     font-family: 'Myriad Variable Concept';
-    font-weight: 300;
-}
-
-body main h1 {
-    font-family: 'Analogue';
-    font-style: italic;
-    font-size: 2em;
+    /* font-weight: 300; */
 }
 
 footer {
@@ -21,6 +15,12 @@ footer {
     font-weight: 400;
     color: white;
 }
+
+p {
+    font-size: 1.1em;
+    font-weight: 300;
+}
+
 /* built-in */
 
 /* bootstrap built-in */
@@ -48,6 +48,11 @@ footer {
 /* bootstrap built-in */
 
 /* custom */
+
+.concentrated, .concentrated p {
+    font-size: 1.1em;
+    font-weight: 400;
+}
 
 /*-- nav */
 .svgContainer {
@@ -83,6 +88,15 @@ footer {
 
 /*-- nav */
 
+/*-- page-specific */
+
+/*--- research */
+#researchTitle {
+    font-family: 'Analogue';
+    font-style: italic;
+    font-size: 2em;
+}
+
 #downloadPart a {
     color:rgb(209, 211, 212);
     font-weight: 500;
@@ -94,11 +108,81 @@ footer {
 
 #downloadPart {
     font-style: italic;
-    font-size: 1.2em;
 }
 
 #essayPart {
-    font-size: 1.2em;
+    font-weight: 300;
     color: rgb(209, 211, 212);
 }
+/*--- research */
+
+/*--- opposition */
+
+#oppoTitle .positioning-box {
+    position: relative;
+    height: 0;
+    padding-bottom: 56.26%;
+    background-image: url(../img/fulls/opposition/1.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#oppoTitle h1 .positioned {
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    font-weight: 300;
+    font-size: 0.9em;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#eyes {
+    display: flex;
+    justify-content: center;
+}
+
+#leftEye {
+    width: 50%;
+    height: 0;
+    padding-bottom: 28.4375%;
+    background-image: url(../img/fulls/opposition/2_eye_left.png);
+    background-size: 100% auto;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+#rightEye {
+    width: 50%;
+    height: 0;
+    padding-bottom: 28.4375%;
+    background-image: url(../img/fulls/opposition/3_eye_right.png);
+    background-size: 100% auto;
+    background-position: left;
+    position: relative;
+    background-repeat: no-repeat;
+}
+
+#rightEye p {
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+}
+
+#strip {
+    background-image: url(../img/fulls/opposition/7_decoration.svg);
+    background-size: contain;
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+#ad {
+    font-weight: 500;
+    font-size: 3em;
+    font-style: italic;
+}
+
+/*--- opposition */
+/*-- page-specific */
 /* custom */
