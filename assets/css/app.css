@@ -116,6 +116,37 @@ p {
 }
 /*--- research */
 
+/*--- archive */
+
+.groups {
+    display: flex;
+    align-items: end;
+}
+
+#group2, #group3 {
+    text-align: right;
+}
+
+#group2 img {
+    width: 83.1%;
+    height: auto;
+}
+
+#group1 img {
+    width: 91.7%;
+    height: auto;
+}
+
+#group3 img {
+    width: 79.7%;
+    height: auto;
+}
+
+
+
+/*--- archive */
+
+
 /*--- opposition */
 
 #oppoTitle .positioning-box {
@@ -181,6 +212,12 @@ p {
     font-weight: 500;
     font-size: 3em;
     font-style: italic;
+}
+
+@media screen and (max-width: 576px) {
+    #ad {
+        font-size: 2em;
+    }
 }
 
 /*--- opposition */
