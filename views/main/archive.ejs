@@ -51,4 +51,34 @@
             </p>
          </div>
     </div>
+    <div class="row my-5">
+        <div class="col-10 offset-1 col-md-8 offset-md-2 col-xl-6 offset-xl-3">
+            <p class="concentrated" style="text-align: center;">You are welcome to tell us your gazing story!! Click <a href="/hollow">here</a> to contribute!!</p>
+        </div>
+    </div>
+    <div id="numbers">
+        <% for (let row_num of Array(7).keys()) { %>
+        <div class="row pr-10">
+            <% for (let col_num of Array(4).keys()) { %>
+            <div class="col-2 cube">
+                <p>(<%= col_num+1 %>)</p>
+            </div>
+            <% } %>
+        </div>
+        <% } %>
+    </div>
+    <div class="row pr-10">
+        <div class="card-custom" id="card1">
+            <img src="/img/fulls/archive/2-1.png" alt="card one" class="img-vertical">
+        </div>
+        <div class="card-custom" id="card2">
+            <img src="/img/fulls/archive/2-2.png" alt="card two" class="img-horizontal">
+        </div>
+        <div class="card-custom" id="card3">
+            <img src="/img/fulls/archive/2-3.png" alt="card three" class="img-vertical">
+        </div>
+        <div class="card-custom" id="card4">
+            <img src="/img/fulls/archive/2-4.png" alt="card four" class="img-horizontal">
+        </div>
+    </div>
 </main>

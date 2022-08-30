@@ -221,5 +221,34 @@ p {
 }
 
 /*--- opposition */
+
+/*--- archive */
+.cube {
+    height: 0;
+    width: 21%;
+    padding-bottom: 19%;
+}
+
+#numbers {
+    font-size: 0.8em;
+}
+
+.card-custom {
+    position: relative;
+    padding: 0;
+}
+
+.img-vertical {
+    width: 100%;
+    height: auto;
+}
+
+.img-horizontal {
+    height: 100%;
+    width: auto;
+}
+
+
+
 /*-- page-specific */
 /* custom */
