@@ -9,6 +9,7 @@ const morgan = require('morgan');
 const methodOverride = require('method-override');
 const favicon = require('serve-favicon');
 const Bodypart = require('./models/Bodypart');
+const Card = require('./models/Card');
 
 mongoose.connect('mongodb://localhost:27017/marginal-sightline');
 
@@ -39,8 +40,8 @@ app.get('/research', (req, res) => {
 });
 
 app.get('/archive', async (req, res) => {
-    const bodyparts = await Bodypart.find({});
-    res.render('main/archive', { bodyparts, tabName: 'Archive' });
+    const cards = await Card.find({});
+    res.render('main/archive', { cards: JSON.stringify(cards), tabName: 'Archive' });
 });
 
 app.get('/opposition', (req, res) => {

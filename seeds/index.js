@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
-const bodyparts = require('./bodyparts');
+const seedBodyparts = require('./bodyparts');
 const Bodypart = require('../models/Bodypart');
+const seedCards = require('./cards')
+const Card = require('../models/Card');
 
 mongoose.connect('mongodb://localhost:27017/marginal-sightline');
 
@@ -16,9 +18,15 @@ db.on("close", () => {
 
 const seedDB = async () => {
     await Bodypart.deleteMany({});
-    for (let bodypart of bodyparts) {
-        let bodypart_dp = new Bodypart(bodypart);
-        await bodypart_dp.save();
+    for (let bodypart of seedBodyparts) {
+        let bodypartDP = new Bodypart(bodypart);
+        await bodypartDP.save();
+    }
+    
+    await Card.deleteMany({});
+    for (let seedCard of seedCards) {
+        let seedCardDP = new Card(seedCard);
+        await seedCardDP.save();
     }
 };
 
@@ -27,6 +35,10 @@ seedDB().then(() => {
     mongoose.connection.close();
 });
 
-Bodypart.find({}).then((bodypart_dps) => {
-    console.log(bodypart_dps);
+Bodypart.find({}).then((bodypartDPs) => {
+    console.log(bodypartDPs);
+});
+
+Card.find({}).then((cardDPs) => {
+    console.log(cardDPs);
 });
