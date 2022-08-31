@@ -67,8 +67,12 @@
         </div>
         <% } %>
     </div>
-    <div class="row pr-10" id="cards">    
-    </div>
+    <div class="row pr-10 card-container"></div>
+    <div class="row pr-10 card-container"></div>
+    <div class="row pr-10 card-container"></div>
+    <div class="row pr-10 card-container"></div>
+    <div class="row pr-10 card-container"></div>
+    <div class="row pr-10 card-container"></div>
 </main>
 
 <script>
@@ -77,10 +81,10 @@
 
     const cubeSample = document.querySelector('.cube');
     const offsetInfo = () => {
-        const cubeHeight = cubeSample.offsetHeight;
-        const cubeWidth = cubeSample.offsetWidth;
+        const cubeHeight = cubeSample.getBoundingClientRect().height;
+        const cubeWidth = cubeSample.getBoundingClientRect().width;
         const numbers = document.querySelector('#numbers');
-        const numbersHeight = numbers.offsetHeight;
+        const numbersHeight = numbers.getBoundingClientRect().height;
         let numbersMB = parseInt(numbers.style.marginBottom);
         if (isNaN(numbersMB)) {
             numbersMB = 0;
@@ -94,48 +98,64 @@
     const vertCardScaler = (card) => {
         const { cubeHeight } = offsetInfo();
         card.style.width = cubeHeight * 0.75 + 'px';
-        card.style.left = cubeHeight * 0.2 + 'px';
+        card.style.left = cubeHeight * 0.15 + 'px';
         card.style.top = cubeHeight * 0.05 + 'px';
     }
 
     const horiCardScaler = (card) => {
         const { cubeHeight } = offsetInfo();
         card.style.height = cubeHeight * 0.75 + 'px';
-        card.style.left = cubeHeight * 0.2 + 'px';
+        card.style.left = cubeHeight * 0.15 + 'px';
         card.style.top = cubeHeight * 0.15 + 'px';
     }
 
-    const cardsElement = document.querySelector('#cards');
+    const numbers = document.querySelector('#numbers')
+    let lastNode = numbers
 
-    for (let card of cards) {
-        let cardElement = document.createElement('div');
-        const imgAdder = () => {
-            let imgElement = document.createElement('img');
-            if (card.direction === 1) {
-                imgElement.classList.add('img-vertical');
-            } else {
-                imgElement.classList.add('img-horizontal');
+    const positionAndScale = () => {
+        for (let card of cards) {
+
+            // 1st-order container
+            let cardContainer = document.createElement('div');
+            cardContainer.classList.add('row');
+            cardContainer.classList.add('card-container');
+            cardContainer.classList.add('pr-10');
+            lastNode.insertAdjacentElement('afterend', cardContainer);
+            lastNode = cardContainer;
+            // img contained
+            let cardElement = document.createElement('div');
+            const imgAdder = () => {
+                let imgElement = document.createElement('img');
+                if (card.direction === 1) {
+                    imgElement.classList.add('img-vertical');
+                } else {
+                    imgElement.classList.add('img-horizontal');
+                }
+                imgElement.src = card.img;
+                imgElement.alt = 'card' + card.order;
+                cardElement.appendChild(imgElement);
             }
-            imgElement.src = card.img;
-            imgElement.alt = 'card' + card.order;
-            cardElement.appendChild(imgElement);
+            imgAdder();
+            // card container
+            const cardCustomizer = () => {
+                cardElement.id = 'card' + card.order;
+                cardElement.classList.add('card-custom')
+                const { cubeHeight, cubeWidth, cardsOffsetHeight } = offsetInfo();
+                let cardTopOffset = cardsOffsetHeight - cubeHeight * (card.order - 1);
+                let cardLeftOffset = cubeWidth * (card.type - 1);
+                cardElement.style.marginTop = '-' + cardTopOffset + 'px';
+                cardElement.style.marginLeft = cardLeftOffset + 'px';
+                if (card.direction === 1) {
+                    vertCardScaler(cardElement);
+                } else {
+                    horiCardScaler(cardElement);
+                };
+            }
+            cardCustomizer();
+            // window.addEventListener('resize', cardCustomizer)
+            cardContainer.appendChild(cardElement);
+            
         }
-        imgAdder();
-        const cardCustomizer = () => {
-            cardElement.id = 'card' + card.order;
-            cardElement.classList.add('card-custom')
-            const { cubeHeight, cubeWidth, cardsOffsetHeight } = offsetInfo();
-            let cardTopOffset = cardsOffsetHeight - cubeHeight * (card.order - 1);
-            let cardLeftOffset = cubeWidth * (card.type - 1);
-            cardElement.style.marginTop = '-' + cardTopOffset + 'px';
-            cardElement.style.marginLeft = cardLeftOffset + 'px';
-            if (card.direction === 1) {
-                vertCardScaler(cardElement);
-            } else {
-                horiCardScaler(cardElement);
-            };
-        }
-        cardCustomizer();    
-        cardsElement.appendChild(cardElement);
     }
+    positionAndScale();
 </script>

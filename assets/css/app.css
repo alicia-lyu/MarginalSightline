@@ -226,24 +226,52 @@ p {
 .cube {
     height: 0;
     width: 19%;
-    padding-bottom: 17%;
+    padding: 0 0 17% 0;
+}
+
+@media screen and (max-width: 576px) {
+    .cube p {
+        font-size: 0.3em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cube p {
+        font-size: 0.5em;
+    }
+}
+
+
+@media screen and (max-width: 992px) {
+    .cube p {
+        font-size: 0.7em;
+    }
 }
 
 #numbers {
     font-size: 0.8em;
 }
 
+.card-container {
+    position: absolute;
+}
+
 .card-custom {
     position: relative;
     padding: 0;
+    display: inline-block;
 }
 
 .img-vertical {
+    display: inline-block;
+    margin: 0;
     width: 100%;
     height: auto;
 }
 
 .img-horizontal {
+    display: inline-block;
+    margin: 0;
     height: 100%;
     width: auto;
 }

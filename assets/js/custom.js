@@ -30,7 +30,23 @@ if (oppoTitle !== null) {
 }
 
 // archive
-// in EJS script
+const cardFinalScaler = () => {
+    const cards = document.querySelectorAll('.card-custom');
+    for (card of cards) {
+        childImg = card.firstChild;
+        card.style.maxWidth = childImg.getBoundingClientRect().width + 'px';
+        card.style.maxHeight = childImg.getBoundingClientRect().height + 'px';
+    }
+}
+const executeFinalScaler = () => {
+    try {
+        cardFinalScaler();
+    } catch (error) {
+        throw error
+    }
+}
+executeFinalScaler();
+window.addEventListener('resize', executeFinalScaler)
 
 // const card1Positioner = () => {
 //     const { cubeHeight, cubeWidth, cardsOffsetHeight } = offsetInfo();
