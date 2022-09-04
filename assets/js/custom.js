@@ -48,49 +48,63 @@ const executeFinalScaler = () => {
 executeFinalScaler();
 window.addEventListener('resize', executeFinalScaler)
 
-// const card1Positioner = () => {
-//     const { cubeHeight, cubeWidth, cardsOffsetHeight } = offsetInfo();
-//     const card1 = document.querySelector('#card1');
-//     const card1TopOffset = cardsOffsetHeight
-//     const card1MarginTop = '-' + card1TopOffset + 'px';;
-//     card1.style.marginTop = card1MarginTop;
-//     vertCardScaler(card1);
-// };
+// home
+const spotSvgActions = () => {
+    const svgActions = new Array();
+    for (let num of Array(34).keys()) {
+        const svgPath = document.querySelector(`#svg${num+1}`);
+        const eyePic = document.querySelector(`#eye${num+1}`);
+        if (svgPath !== null) {
+            svgActions.push({svgPath, eyePic});
+        } else {
+            return null
+        }
+    }
+    return svgActions;
+}
 
-// const card2Positioner = () => {
-//     const { cubeHeight, cubeWidth, cardsOffsetHeight } = offsetInfo();
-//     const card2 = document.querySelector('#card2');
-//     const card2TopOffset = cardsOffsetHeight - cubeHeight;
-//     card2.style.marginTop = '-' + card2TopOffset + 'px';
-//     const card2LeftOffset = cubeWidth;
-//     card2.style.marginLeft = card2LeftOffset + 'px';
-//     horiCardScaler(card2);
+const svgActions = spotSvgActions();
+let visibleEye = document.querySelector('#eye0');
+let hoveredItem = undefined;
+let timeoutID = undefined;
+
+if (svgActions !== null) {
+    for (let svgAction of svgActions) {
+        svgAction.svgPath.addEventListener('mouseover', () => {
+            if (hoveredItem !== svgAction.svgPath) {
+                if (typeof timeoutID === 'number') {
+                    clearTimeout(timeoutID);
+                }
+                hoveredItem = svgAction.svgPath;
+                let timeoutID = setTimeout(() => {
+                    visibleEye.style.opacity = '0';
+                    visibleEye = svgAction.eyePic;
+                    visibleEye.style.opacity = '1';
+                }, 1000);
+            }
+        })
+    }
+}
+
+// const switchButton = document.querySelector('#switchButton');
+// const whole = document.querySelector('#whole');
+// const visibleAtFirst = document.querySelector('#visibleAtFirst');
+// const coveringEyes = document.querySelector('#coveringEyes');
+// const fade = () => {
+//     try {
+//         switchButton.addEventListener('click', () => {
+//             if (whole.style.opacity === '0') {
+//                 whole.style.opacity = '1';
+//                 visibleAtFirst.style.display = 'none';
+//                 coveringEyes.style.display = 'none';
+//             } else {
+//                 whole.style.opacity = '0';
+//                 visibleAtFirst.style.display = 'block';
+//                 coveringEyes.style.display = 'block';
+//             }
+//         })
+        
+//     } catch (error) {
+//         console.log(error)
+//     }
 // }
-
-// const card3Positioner = () => {
-//     const { cubeHeight, cubeWidth, cardsOffsetHeight } = offsetInfo();
-//     const card3 = document.querySelector('#card3');
-//     const card3TopOffset = cardsOffsetHeight - cubeHeight * 2;
-//     card3.style.marginTop = '-' + card3TopOffset + 'px';
-//     const card3LeftOffset = cubeWidth * 3;
-//     card3.style.marginLeft = card3LeftOffset + 'px';
-//     vertCardScaler(card3);
-// }
-
-// const card4Positioner = () => {
-//     const { cubeHeight, cubeWidth, cardsOffsetHeight } = offsetInfo();
-//     const card4 = document.querySelector('#card4');
-//     const card4TopOffset = cardsOffsetHeight - cubeHeight * 3;
-//     card4.style.marginTop = '-' + card4TopOffset + 'px';
-//     horiCardScaler(card4);
-// }
-
-// if (cubeSample !== null) {
-//     card1Positioner();
-//     card2Positioner();
-//     card3Positioner();
-//     card4Positioner();
-// }
-
-
-

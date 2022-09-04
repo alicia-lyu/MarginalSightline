@@ -35,6 +35,11 @@ app.get('/', async (req, res) => {
     res.render('main/home', { bodyparts, tabName: 'Home' });
 });
 
+app.get('/home-revealed', async (req, res) => {
+    const bodyparts = await Bodypart.find({});
+    res.render('main/homeRevealed', { bodyparts, tabName: 'Home' });
+});
+
 app.get('/research', (req, res) => {
     res.render('main/research', {tabName: 'Research'});
 });

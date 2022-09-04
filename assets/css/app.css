@@ -65,6 +65,10 @@ p {
     background-position: right;
 }
 
+.nav-link a {
+    text-decoration: none;
+}
+
 #tabName {
     font-family: 'Helvetica Neue';
     font-weight: 300;
@@ -276,7 +280,239 @@ p {
     width: auto;
 }
 
+/*-- archive */
 
+/*-- home */
+
+#mainNavbar.home-nav {
+    background: none;
+}
+
+.switchButton {
+    background-image: url(../img/thumbnails/switchButton.svg);
+    line-height: 1;
+    padding-left: 1.5em;
+    margin-right: 2px;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+#whole {
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+}
+
+#whole.revealed {
+    opacity: 1;
+}
+
+#visibleAtFirst {
+    width: 100%;
+    padding-bottom: 60.213%;
+    position: absolute;
+    background-image: url(../img/fulls/home/visibleAtFirst.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+
+#coveringEyes {
+    position: absolute;
+    width: 100%;
+    height: auto;
+}
+
+.covering-eye {
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+    opacity: 0;
+    height: 0;
+    padding-bottom: 60.226%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+#eye0 {
+    background-image: url(../img/fulls/home/eye0.png);
+    opacity: 1;
+}
+
+#eye1 {
+    background-image: url(../img/fulls/home/eye1.png);
+}
+
+#eye2 {
+    background-image: url(../img/fulls/home/eye2.png);
+}
+
+
+#eye3 {
+    background-image: url(../img/fulls/home/eye3.png);
+}
+
+#eye4 {
+    background-image: url(../img/fulls/home/eye4.png);
+}
+
+#eye5 {
+    background-image: url(../img/fulls/home/eye5.png);
+}
+
+#eye6 {
+    background-image: url(../img/fulls/home/eye6.png);
+}
+
+#eye7 {
+    background-image: url(../img/fulls/home/eye7.png);
+}
+
+#eye8 {
+    background-image: url(../img/fulls/home/eye8.png);
+}
+
+#eye9 {
+    background-image: url(../img/fulls/home/eye9.png);
+}
+
+#eye10 {
+    background-image: url(../img/fulls/home/eye10.png);
+}
+
+#eye11 {
+    background-image: url(../img/fulls/home/eye11.png);
+}
+
+#eye12 {
+    background-image: url(../img/fulls/home/eye12.png);
+}
+
+#eye13 {
+    background-image: url(../img/fulls/home/eye13.png);
+}
+
+#eye14 {
+    background-image: url(../img/fulls/home/eye14.png);
+}
+
+#eye15 {
+    background-image: url(../img/fulls/home/eye15.png);
+}
+
+#eye16 {
+    background-image: url(../img/fulls/home/eye16.png);
+}
+
+#eye17 {
+    background-image: url(../img/fulls/home/eye17.png);
+}
+
+#eye18 {
+    background-image: url(../img/fulls/home/eye18.png);
+}
+
+#eye19 {
+    background-image: url(../img/fulls/home/eye19.png);
+}
+
+#eye20 {
+    background-image: url(../img/fulls/home/eye20.png);
+}
+
+#eye21 {
+    background-image: url(../img/fulls/home/eye21.png);
+}
+
+#eye22 {
+    background-image: url(../img/fulls/home/eye22.png);
+}
+
+#eye23 {
+    background-image: url(../img/fulls/home/eye23.png);
+}
+
+#eye24 {
+    background-image: url(../img/fulls/home/eye24.png);
+}
+
+#eye25 {
+    background-image: url(../img/fulls/home/eye25.png);
+}
+
+#eye26 {
+    background-image: url(../img/fulls/home/eye26.png);
+}
+
+#eye27 {
+    background-image: url(../img/fulls/home/eye27.png);
+}
+
+#eye28 {
+    background-image: url(../img/fulls/home/eye28.png);
+}
+
+#eye29 {
+    background-image: url(../img/fulls/home/eye29.png);
+}
+
+#eye30 {
+    background-image: url(../img/fulls/home/eye30.png);
+}
+
+#eye31 {
+    background-image: url(../img/fulls/home/eye31.png);
+}
+
+#eye32 {
+    background-image: url(../img/fulls/home/eye32.png);
+}
+
+#eye33 {
+    background-image: url(../img/fulls/home/eye33.png);
+}
+
+#eye34 {
+    background-image: url(../img/fulls/home/eye34.png);
+}
+
+
+/* #background {
+    position: fixed;
+    left: 0;
+    display: block;
+    width: 100%;
+    padding-bottom: 56.405%;
+    background-image: url(../img/fulls/home/background.svg);
+    background-size: 100% auto;
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+
+#bodyparts {
+    left: 0;
+    width: 100%;
+    aspect-ratio: 100 / 56.405;
+    position: fixed;
+}
+
+.bodypart {
+    position: relative;
+}
+
+#svg1 {
+    left: 0;
+    top: 15.423%;
+    width: 12.784%;
+    height: auto;
+} */
+
+/* #svg2 */
+
+
+/*-- home */
 
 /*-- page-specific */
 /* custom */
