@@ -6,6 +6,7 @@ body {
     background: black;
     color: white;
     font-family: 'Myriad Variable Concept';
+    overflow-x: hidden;
     /* font-weight: 300; */
 }
 

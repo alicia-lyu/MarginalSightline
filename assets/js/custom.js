@@ -54,7 +54,7 @@ const spotSvgActions = () => {
     for (let num of Array(34).keys()) {
         const svgPath = document.querySelector(`#svg${num+1}`);
         const eyePic = document.querySelector(`#eye${num+1}`);
-        if (svgPath !== null) {
+        if (svgPath !== null && eyePic !== null) {
             svgActions.push({svgPath, eyePic});
         } else {
             return null
@@ -65,22 +65,22 @@ const spotSvgActions = () => {
 
 const svgActions = spotSvgActions();
 let visibleEye = document.querySelector('#eye0');
-let hoveredItem = undefined;
-let timeoutID = undefined;
+let hoveredItem = null;
+let timeoutID = null;
 
 if (svgActions !== null) {
     for (let svgAction of svgActions) {
-        svgAction.svgPath.addEventListener('mouseover', () => {
+        svgAction.svgPath.addEventListener('mouseenter', () => {
             if (hoveredItem !== svgAction.svgPath) {
                 if (typeof timeoutID === 'number') {
                     clearTimeout(timeoutID);
                 }
                 hoveredItem = svgAction.svgPath;
-                let timeoutID = setTimeout(() => {
+                timeoutID = setTimeout(() => {
                     visibleEye.style.opacity = '0';
                     visibleEye = svgAction.eyePic;
                     visibleEye.style.opacity = '1';
-                }, 1000);
+                }, 50);
             }
         })
     }
