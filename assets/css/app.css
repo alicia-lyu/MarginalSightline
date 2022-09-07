@@ -329,6 +329,10 @@ form {
     background-color: #181818;
 }
 
+/* form input,select,textarea:focus {
+    background-color: #000;
+} */
+
 /*-- archive */
 
 /*-- home */

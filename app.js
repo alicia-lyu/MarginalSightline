@@ -17,12 +17,12 @@ const Bodypart = require('./models/Bodypart');
 const Card = require('./models/Card');
 const Confiding = require('./models/Confiding');
 
-const dbUrl = process.env.DB_URL
-const localDB = 'mongodb://localhost:27017/marginal-sightline'
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/marginal-sightline';
+const secret = process.env.SECRET || 'foo';
 
 const store = new mongoDBStore({
-    mongoUrl: localDB,
-    secret: 'foo',
+    mongoUrl: dbUrl,
+    secret,
     touchAfter: 24 * 3600,
 })
 
@@ -33,7 +33,7 @@ store.on("error", (error) => {
 const sessionConfig = {
     store,
     name: 'session',
-    secret: 'foo',
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -44,7 +44,7 @@ const sessionConfig = {
     }
 }
 
-mongoose.connect(localDB);
+mongoose.connect(dbUrl);
 
 const app = express()
 app.use(session(sessionConfig));
@@ -105,7 +105,7 @@ app.post('/archive/story', async (req, res) => {
     let confiding = new Confiding({name, email, category, story});
     await confiding.save();
     req.flash('success', 'Story sent successfully!');
-    // res.redirect('/archive')
+    res.redirect('/archive')
 })
 
 app.use((req, res) => {
