@@ -281,6 +281,54 @@ p {
     width: auto;
 }
 
+form {
+    font-style: italic;
+}
+
+#formBox {
+    height: 100%;
+    display:flex;
+    align-items: center;
+}
+
+.form-control, .form-select {
+    background-color: #000;
+}
+
+#formDecoration {
+    height: 20%;
+    background-image: url(../img/fulls/story/decoration.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+@media screen and (min-width: 768px) {
+    #formDecoration {
+        height: 100%;
+    }
+    #formContainer {
+        height: 100%;
+    }
+}
+
+#buttonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#submitButton {
+    border: 1px solid #ced4da;
+    background-color: #000;
+    font-style: italic;
+    margin-left: auto;
+}
+
+#submitButton:hover {
+    background-color: #181818;
+}
+
 /*-- archive */
 
 /*-- home */

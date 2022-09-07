@@ -10,10 +10,12 @@ const ejsMate = require('ejs-mate');
 const morgan = require('morgan');
 const methodOverride = require('method-override');
 const favicon = require('serve-favicon');
+const flash = require('connect-flash');
 
 
 const Bodypart = require('./models/Bodypart');
 const Card = require('./models/Card');
+const Confiding = require('./models/Confiding');
 
 const dbUrl = process.env.DB_URL
 const localDB = 'mongodb://localhost:27017/marginal-sightline'
@@ -36,6 +38,7 @@ const sessionConfig = {
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
+        secure: false,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
@@ -58,8 +61,17 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.static(path.join(__dirname, 'assets')))
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(morgan('tiny'));
+app.use(flash());
+app.use((req, res, next) => {
+    console.log(req.session)
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
+    next();
+})
+
 
 app.get('/', async (req, res) => {
     const bodyparts = await Bodypart.find({});
@@ -84,9 +96,22 @@ app.get('/opposition', (req, res) => {
     res.render('main/opposition', {tabName: 'Opposition'});
 });
 
+app.get('/archive/story', (req, res) => {
+    res.render('main/story', {tabName: 'archive'});
+})
+
+app.post('/archive/story', async (req, res) => {
+    let {name, email, category, story} = req.body;
+    let confiding = new Confiding({name, email, category, story});
+    await confiding.save();
+    req.flash('success', 'Story sent successfully!');
+    // res.redirect('/archive')
+})
+
 app.use((req, res) => {
     res.status(404).send('Not Found')
 })
+
 
 app.listen(3000, () => {
     console.log('Serving on port 3000')

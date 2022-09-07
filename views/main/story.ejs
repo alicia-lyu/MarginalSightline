@@ -1,0 +1,63 @@
+<% layout('layouts/boilerplate')%>
+<nav id="mainNavbar" class="navbar navbar-dark navbar-expand-sm fixed-top">
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navLinks">
+        <ul class="navbar-nav">
+            <li class="nav-item" id="mainNavLi">
+                <a href="/" class="nav-link">
+                    <span class="svgContainer"></span>
+                    <span>MARGINAL SIGHTLINE</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/research" class="nav-link">RESEARCH</a>
+            </li>
+            <li class="nav-item current">
+                <a href="/archive" class="nav-link">ARCHIVE</a>
+            </li>
+            <li class="nav-item">
+                <a href="/opposition" class="nav-link">OPPOSITION</a>
+            </li>
+        </ul>
+    </div>
+    <div id="tabName">
+        ARCHIVE
+    </div>
+</nav>
+
+<main class="container mt-5" id="formContainer">
+    <div class="row mt-5" id="formBox">
+        <div class="col-md-4 col-xl-6" id="formDecoration"></div>
+        <div class="col-md-8 col-xl-6">
+            <form action="/archive/story" method="post">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Your name:</label>
+                    <input type="text" class="form-control" id="name" aria-describedby="name" name="name">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address:</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="email" name="email">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="category" class="form-label">The category you think you are in:</label>
+                    <select class="form-select" id="category" aria-label="category" name="category">
+                        <option value="Skin">Skin</option>
+                        <option value="Quantitative Change">Quantitative Change</option>
+                        <option value="Discipline">Discipline</option>
+                        <option value="Imperfect">Imperfect</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="story" class="form-label">Your gazing story:</label>
+                    <textarea type="text" class="form-control" id="story" aria-describedby="story" name="story"></textarea>
+                </div>
+                <div id="buttonContainer">
+                    <button type="submit" class="btn btn-primary" id="submitButton">SUBMIT</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
