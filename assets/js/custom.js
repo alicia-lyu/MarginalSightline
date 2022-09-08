@@ -4,11 +4,11 @@ const tabName = document.querySelector('#tabName');
 const mainNavbar = document.querySelector('#mainNavbar');
 collapseItem.addEventListener('show.bs.collapse', () => {
     tabName.style.display = 'none';
-    mainNavbar.style.border = '1px solid #383838';
+    mainNavbar.style.borderBottom = '1px solid #383838';
 })
 collapseItem.addEventListener('hidden.bs.collapse', () => {
     tabName.style.display = 'flex';
-    mainNavbar.style.border = 'none';
+    mainNavbar.style.borderBottom = 'none';
 })
 window.addEventListener('resize', () => {
     if (window.innerWidth > 576) {
