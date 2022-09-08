@@ -1,7 +1,7 @@
 // Navbar decoration
 const collapseItem = document.querySelector('.collapse');
 const tabName = document.querySelector('#tabName');
-const mainNavbar = document.querySelector('#mainNavbar')
+const mainNavbar = document.querySelector('#mainNavbar');
 collapseItem.addEventListener('show.bs.collapse', () => {
     tabName.style.display = 'none';
     mainNavbar.style.border = '1px solid #383838';
@@ -21,8 +21,8 @@ window.addEventListener('resize', () => {
 // opposition
 
 const oppoTitle = document.querySelector('#oppoTitleMain');
-const oppoTitleScaler = (oppoTitle) => {
-    const oppoTitleW = parseInt(oppoTitle.style.width);
+const oppoTitleScaler = () => {
+    const oppoTitleW = oppoTitle.offsetWidth
     oppoTitle.style.height = Math.round(oppoTitleW / 210.2 * 118.25).toString();
 }
 if (oppoTitle !== null) {
@@ -85,26 +85,3 @@ if (svgActions !== null) {
         })
     }
 }
-
-// const switchButton = document.querySelector('#switchButton');
-// const whole = document.querySelector('#whole');
-// const visibleAtFirst = document.querySelector('#visibleAtFirst');
-// const coveringEyes = document.querySelector('#coveringEyes');
-// const fade = () => {
-//     try {
-//         switchButton.addEventListener('click', () => {
-//             if (whole.style.opacity === '0') {
-//                 whole.style.opacity = '1';
-//                 visibleAtFirst.style.display = 'none';
-//                 coveringEyes.style.display = 'none';
-//             } else {
-//                 whole.style.opacity = '0';
-//                 visibleAtFirst.style.display = 'block';
-//                 coveringEyes.style.display = 'block';
-//             }
-//         })
-        
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }

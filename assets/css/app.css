@@ -55,6 +55,18 @@ p {
     font-weight: 400;
 }
 
+@media screen and (max-width: 576px) {
+    .spaceholder {
+        margin-top: 6em;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .spaceholder {
+        margin-top: 5em;
+    }
+}
+
 /*-- nav */
 .svgContainer {
     background-image: url(../img/thumbnails/simple_logo.svg);
@@ -68,6 +80,7 @@ p {
 
 .nav-link a {
     text-decoration: none;
+    color: white;
 }
 
 #tabName {
@@ -223,6 +236,20 @@ p {
     #ad {
         font-size: 2em;
     }
+    #joyStickInstruction {
+        font-size: 0.7em;
+    }
+    #rightEye p {
+        font-size: 0.7em;
+    }
+}
+
+#joyStickInstruction {
+    font-weight: 400;
+}
+
+@media screen and (max-width: 576px) {
+    
 }
 
 /*--- opposition */
@@ -337,10 +364,6 @@ form {
 
 /*-- home */
 
-#mainNavbar.home-nav {
-    background: none;
-}
-
 .switchButton {
     background-image: url(../img/thumbnails/switchButton.svg);
     line-height: 1;
@@ -352,8 +375,9 @@ form {
 }
 
 #whole {
-    width: 100%;
-    position: absolute;
+    width: 98%;
+    left: 1%;
+    position: relative;
     opacity: 0;
 }
 
@@ -362,7 +386,8 @@ form {
 }
 
 #visibleAtFirst {
-    width: 100%;
+    width: 98%;
+    left: 1%;
     padding-bottom: 60.213%;
     position: absolute;
     background-image: url(../img/fulls/home/visibleAtFirst.png);
@@ -373,20 +398,31 @@ form {
 
 #coveringEyes {
     position: absolute;
-    width: 100%;
+    width: 98%;
+    left: 1%;
     height: auto;
 }
 
 .covering-eye {
     position: absolute;
     pointer-events: none;
-    width: 100%;
+    width: 98%;
+    left: 1%;
     opacity: 0;
     height: 0;
     padding-bottom: 60.226%;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: top;
+}
+
+#suggestion p {
+    font-size: smaller;
+    font-style: italic;
+}
+
+#suggestion .switchButton {
+    padding-left: 1em;
 }
 
 #eye0 {

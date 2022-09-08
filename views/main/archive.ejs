@@ -26,9 +26,10 @@
         ARCHIVE
     </div>
 </nav>
-<main class="container mt-5">
+<main class="container">
+    <div class="spaceholder"></div>
+    <div class="row">
     <% if (success && success.length) {%>
-    <div class="row mt-5">
         <div class="col-md-6 offset-md-3">
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <%= success %>
@@ -37,8 +38,8 @@
                 </button>
             </div>
         </div>
-    </div>
     <% } %>
+    </div>
     <div class="row groups ml-sm-5 pl-sm-5">
         <div class="col-5 offset-1 col-lg-4 offset-lg-2 col-xxl-3 offset-xxl-3" id="group2">
             <img src="/img/fulls/archive/1-2_quantitative_change.svg" alt="">
