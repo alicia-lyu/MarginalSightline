@@ -1,6 +1,6 @@
 # Marginal Sightline
 
-The repository contains the source code for a website—Marginal Sightline. See http://marginal-sightline.herokuapp.com/.
+The repository contains the source code for a website—Marginal Sightline. See https://marginal-sightline.herokuapp.com/.
 
 ## Copyright and License
 
