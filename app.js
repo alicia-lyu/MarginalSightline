@@ -11,9 +11,9 @@ const morgan = require('morgan');
 const methodOverride = require('method-override');
 const favicon = require('serve-favicon');
 const flash = require('connect-flash');
+const formRoutes = require('./form/routes')
 
 
-const Bodypart = require('./models/Bodypart');
 const Card = require('./models/Card');
 const Confiding = require('./models/Confiding');
 
@@ -60,6 +60,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
 app.use(express.static(path.join(__dirname, 'assets')))
 
+app.use('/jquery', express.static(path.join(__dirname + 'node_modules/jquery/dist/')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride('_method'));
@@ -74,13 +75,11 @@ app.use((req, res, next) => {
 
 
 app.get('/', async (req, res) => {
-    const bodyparts = await Bodypart.find({});
-    res.render('main/home', { bodyparts, tabName: 'Home' });
+    res.render('main/home', { tabName: 'Home' });
 });
 
 app.get('/home-revealed', async (req, res) => {
-    const bodyparts = await Bodypart.find({});
-    res.render('main/homeRevealed', { bodyparts, tabName: 'Home' });
+    res.render('main/homeRevealed', { tabName: 'Home' });
 });
 
 app.get('/research', (req, res) => {
@@ -96,22 +95,11 @@ app.get('/opposition', (req, res) => {
     res.render('main/opposition', {tabName: 'Opposition'});
 });
 
-app.get('/archive/story', (req, res) => {
-    res.render('main/story', {tabName: 'archive'});
-})
-
-app.post('/archive/story', async (req, res) => {
-    let {name, email, category, story} = req.body;
-    let confiding = new Confiding({name, email, category, story});
-    await confiding.save();
-    req.flash('success', 'Story sent successfully!');
-    res.redirect('/archive')
-})
+app.use('/archive/story', formRoutes)
 
 app.use((req, res) => {
     res.status(404).send('Not Found')
 })
-
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

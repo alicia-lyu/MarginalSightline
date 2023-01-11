@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const seedBodyparts = require('./bodyparts');
-const Bodypart = require('../models/Bodypart');
 const seedCards = require('./cards')
 const Card = require('../models/Card');
 
@@ -17,12 +15,6 @@ db.on("close", () => {
 })
 
 const seedDB = async () => {
-    await Bodypart.deleteMany({});
-    for (let bodypart of seedBodyparts) {
-        let bodypartDP = new Bodypart(bodypart);
-        await bodypartDP.save();
-    }
-    
     await Card.deleteMany({});
     for (let seedCard of seedCards) {
         let seedCardDP = new Card(seedCard);
@@ -33,10 +25,6 @@ const seedDB = async () => {
 
 seedDB().then(() => {
     mongoose.connection.close();
-});
-
-Bodypart.find({}).then((bodypartDPs) => {
-    console.log(bodypartDPs);
 });
 
 Card.find({}).then((cardDPs) => {
